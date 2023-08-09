@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://biyys4fgxnb75"]
+
+[ext_resource type="Script" path="res://core/character/character.gd" id="1_cww75"]
+[ext_resource type="Texture2D" uid="uid://dl3j10xgra61b" path="res://odin.png" id="2_ciodm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rkgtg"]
+friction = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_16mg4"]
+radius = 31.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtxe7"]
+bg_color = Color(0.988235, 0.780392, 0.776471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72lm5"]
+bg_color = Color(0.376471, 1, 0.294118, 1)
+
+[node name="Character" type="RigidBody2D" groups=["Character"]]
+physics_material_override = SubResource("PhysicsMaterial_rkgtg")
+continuous_cd = 2
+max_contacts_reported = 10
+contact_monitor = true
+lock_rotation = true
+freeze_mode = 1
+linear_damp = 0.1
+script = ExtResource("1_cww75")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_ciodm")
+
+[node name="Arm" type="Node2D" parent="Sprite2D"]
+position = Vector2(10.5, 3.25)
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_16mg4")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -50.0
+offset_top = -70.0
+offset_right = 50.0
+offset_bottom = -43.0
+theme_override_styles/background = SubResource("StyleBoxFlat_gtxe7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_72lm5")
+value = 100.0
+allow_greater = true
+show_percentage = false

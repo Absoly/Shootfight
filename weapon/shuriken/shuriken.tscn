@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://5qjhaagwperv"]
+
+[ext_resource type="PackedScene" uid="uid://b1xtvi7olj2kc" path="res://weapon/weapon.tscn" id="1_77vn1"]
+[ext_resource type="PackedScene" uid="uid://dw6buh8pyak3s" path="res://weapon/shuriken/shuriken_projectile.tscn" id="2_emy6p"]
+[ext_resource type="Texture2D" uid="uid://c73cdoiampwpr" path="res://weapon/shuriken/shuriken.png" id="2_ne2op"]
+
+[node name="Shuriken" instance=ExtResource("1_77vn1")]
+projectile = ExtResource("2_emy6p")
+power = 60.0
+reload_time = 4.0
+damage = 50.0
+range = 2000.0
+recoil = 0.3
+bullet_life_time = 5.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ne2op")
+
+[node name="Barrel" parent="." index="1"]
+position = Vector2(16, 0)
+
+[node name="Muzzle" parent="." index="2"]
+position = Vector2(32, 0)

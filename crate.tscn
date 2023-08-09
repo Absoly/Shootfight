@@ -1,0 +1,32 @@
+[gd_scene load_steps=9 format=3 uid="uid://uuxdu7wodf11"]
+
+[ext_resource type="Script" path="res://crate.gd" id="1_pqdew"]
+[ext_resource type="Texture2D" uid="uid://dnecfv84q7l6m" path="res://crate.png" id="1_ribc1"]
+[ext_resource type="PackedScene" uid="uid://b1spt5wlqxwmy" path="res://weapon/awp/awp.tscn" id="2_vpn44"]
+[ext_resource type="PackedScene" uid="uid://beuqdyc0jhpup" path="res://weapon/ak/ak.tscn" id="3_h3w1p"]
+[ext_resource type="PackedScene" uid="uid://b15mmjaulord5" path="res://weapon/Flamethrower/flamethrower.tscn" id="4_v6adi"]
+[ext_resource type="PackedScene" uid="uid://5qjhaagwperv" path="res://weapon/Shuriken/shuriken.tscn" id="5_6m1nb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipuq6"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5qier"]
+radius = 46.0
+
+[node name="Crate" type="RigidBody2D"]
+script = ExtResource("1_pqdew")
+weapon_scene = Array[PackedScene]([ExtResource("2_vpn44"), ExtResource("3_h3w1p"), ExtResource("4_v6adi"), ExtResource("5_6m1nb")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_ribc1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ipuq6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_5qier")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
