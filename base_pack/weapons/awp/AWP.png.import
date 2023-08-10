@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkqvxb8uhy0k5"
-path="res://.godot/imported/AWP.png-4d793e6741731b2e1102fa0e9fe2efe9.ctex"
+uid="uid://cfknctf7la2rw"
+path="res://.godot/imported/awp.png-cd7527d2283695baddccc9e45356ff0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://base_pack/weapons/awp/AWP.png"
-dest_files=["res://.godot/imported/AWP.png-4d793e6741731b2e1102fa0e9fe2efe9.ctex"]
+source_file="res://base_pack/weapons/awp/awp.png"
+dest_files=["res://.godot/imported/awp.png-cd7527d2283695baddccc9e45356ff0a.ctex"]
 
 [params]
 

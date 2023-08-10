@@ -3,7 +3,7 @@ extends RigidBody2D
 @export var number := "1"
 @export var acceleration := 2000.0
 @export var floor_drag = 0.97
-@export var jump_force := 600.0
+@export var jump_force := 800.0
 @export var health := 100.0
 @export var walkable_slope_angle := 50.0
 
@@ -141,7 +141,7 @@ func _integrate_forces(state):
 		if can_control_fly():
 			state.apply_central_force(state.total_gravity.normalized().orthogonal() * sign(move_direction.x) * acceleration * fly_control_cooldown)
 	if can_climb():
-		apply_force(-state.total_gravity - linear_velocity * 5 + move_direction * acceleration)
+		apply_force(-state.total_gravity - linear_velocity * 2 + move_direction * acceleration)
 		fly_control_cooldown = 0.5
 
 

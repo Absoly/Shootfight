@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2m5xfjyjrqqn"]
 
 [ext_resource type="PackedScene" uid="uid://biyys4fgxnb75" path="res://core/character/character.tscn" id="1_nsci2"]
-[ext_resource type="Texture2D" uid="uid://dl3j10xgra61b" path="res://base_pack/players/odin/odin.png" id="2_3j6hw"]
+[ext_resource type="Texture2D" uid="uid://6f5oc38ux2j5" path="res://base_pack/players/odin/odin.png" id="2_3j6hw"]
 
 [node name="Odin" instance=ExtResource("1_nsci2")]
 

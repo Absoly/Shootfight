@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b1xtvi7olj2kc" path="res://core/shooting/shooting.tscn" id="1_sw5w4"]
 [ext_resource type="PackedScene" uid="uid://bifvgki0l8nw8" path="res://base_pack/weapons/flamethrower/fire.tscn" id="2_37tjj"]
-[ext_resource type="Texture2D" uid="uid://7gil4xbuaywk" path="res://base_pack/weapons/flamethrower/Flamethrower.png" id="3_2vpfb"]
+[ext_resource type="Texture2D" uid="uid://bb2j43050acfn" path="res://base_pack/weapons/flamethrower/flamethrower.png" id="3_xu6ig"]
 
 [node name="Flamethrower" instance=ExtResource("1_sw5w4")]
 projectile = ExtResource("2_37tjj")
@@ -12,10 +12,13 @@ damage = 4.0
 range = 500.0
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("3_2vpfb")
+texture = ExtResource("3_xu6ig")
 
 [node name="Barrel" parent="." index="1"]
 position = Vector2(8, -10)
 
+[node name="CollisionShape2D" parent="Barrel" index="0"]
+position = Vector2(28, 8)
+
 [node name="Muzzle" parent="." index="2"]
-position = Vector2(24, -10)
+position = Vector2(67, -2)

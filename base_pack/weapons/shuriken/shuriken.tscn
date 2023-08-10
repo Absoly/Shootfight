@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b1xtvi7olj2kc" path="res://core/shooting/shooting.tscn" id="1_77vn1"]
 [ext_resource type="PackedScene" uid="uid://bm5y3b4ekkxht" path="res://base_pack/projectiles/shuriken/shuriken.tscn" id="2_srt8w"]
-[ext_resource type="Texture2D" uid="uid://c73cdoiampwpr" path="res://base_pack/projectiles/shuriken/shuriken.png" id="3_l7son"]
+[ext_resource type="Texture2D" uid="uid://d2e7e317ius7a" path="res://base_pack/projectiles/shuriken/shuriken.png" id="3_l7son"]
 
 [node name="Shuriken" instance=ExtResource("1_77vn1")]
 projectile = ExtResource("2_srt8w")
@@ -21,5 +21,8 @@ texture = ExtResource("3_l7son")
 [node name="Barrel" parent="." index="1"]
 position = Vector2(16, 0)
 
+[node name="CollisionShape2D" parent="Barrel" index="0"]
+position = Vector2(21, 0)
+
 [node name="Muzzle" parent="." index="2"]
-position = Vector2(32, 0)
+position = Vector2(64, 0)
