@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://uuxdu7wodf11"]
+[gd_scene load_steps=8 format=3 uid="uid://uuxdu7wodf11"]
 
 [ext_resource type="Script" path="res://core/crate.gd" id="1_pqdew"]
 [ext_resource type="Texture2D" uid="uid://dnecfv84q7l6m" path="res://base_pack/crates/weapon_crate.png" id="1_ribc1"]
@@ -8,12 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://5qjhaagwperv" path="res://base_pack/weapons/shuriken/shuriken.tscn" id="5_6m1nb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipuq6"]
-size = Vector2(64, 64)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_5qier"]
-radius = 46.0
+size = Vector2(128, 128)
 
 [node name="Crate" type="RigidBody2D"]
+max_contacts_reported = 10
+contact_monitor = true
 script = ExtResource("1_pqdew")
 weapon_scene = Array[PackedScene]([ExtResource("2_vpn44"), ExtResource("3_h3w1p"), ExtResource("4_v6adi"), ExtResource("5_6m1nb")])
 
@@ -24,9 +23,4 @@ texture = ExtResource("1_ribc1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ipuq6")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_5qier")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
