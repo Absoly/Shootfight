@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bm5y3b4ekkxht"]
 
 [ext_resource type="Script" path="res://core/projectile.gd" id="1_48a3d"]
-[ext_resource type="Texture2D" uid="uid://c73cdoiampwpr" path="res://base_pack/projectiles/shuriken/shuriken.png" id="2_i67sm"]
+[ext_resource type="Texture2D" uid="uid://d2e7e317ius7a" path="res://base_pack/projectiles/shuriken/shuriken.png" id="2_i67sm"]
 
 [node name="Shuriken" type="AnimatableBody2D"]
 sync_to_physics = false
@@ -13,4 +13,4 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_i67sm")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, -32, 8, -8, 32, 0, 8, 8, 0, 32, -8, 8, -32, 0, -8, -8)
+polygon = PackedVector2Array(0, -55, 8, -8, 55, 0, 8, 8, 0, 55, -8, 8, -53, 0, -8, -8)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bn4ri0ulv7xvl"]
 
 [ext_resource type="PackedScene" uid="uid://biyys4fgxnb75" path="res://core/character/character.tscn" id="1_jynq3"]
-[ext_resource type="Texture2D" uid="uid://cmvv46004nmwd" path="res://base_pack/players/perviy/perviy.png" id="2_34xpy"]
+[ext_resource type="Texture2D" uid="uid://bgi5aeq3pmwpt" path="res://base_pack/players/perviy/perviy.png" id="2_34xpy"]
 
 [node name="Perviy" instance=ExtResource("1_jynq3")]
 number = "2"

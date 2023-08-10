@@ -6,8 +6,8 @@
 
 [node name="Shuriken" instance=ExtResource("1_77vn1")]
 projectile = ExtResource("2_srt8w")
-power = 40.0
-power_torque = 5.0
+power = 70.0
+power_torque = 3.0
 reload_time = 1.0
 damage = 50.0
 range = 500.0
@@ -22,7 +22,7 @@ texture = ExtResource("3_l7son")
 position = Vector2(16, 0)
 
 [node name="CollisionShape2D" parent="Barrel" index="0"]
-position = Vector2(21, 0)
+position = Vector2(21.5, -1)
 
 [node name="Muzzle" parent="." index="2"]
 position = Vector2(64, 0)
