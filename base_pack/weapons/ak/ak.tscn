@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://beuqdyc0jhpup"]
 
 [ext_resource type="PackedScene" uid="uid://b1xtvi7olj2kc" path="res://core/shooting/shooting.tscn" id="1_uvq0i"]
-[ext_resource type="Texture2D" uid="uid://de588i1x2y7tf" path="res://base_pack/weapons/ak/ak.png" id="2_0sup6"]
+[ext_resource type="Texture2D" uid="uid://de588i1x2y7tf" path="res://base_pack/weapons/ak/AK.png" id="2_0sup6"]
 
 [node name="AK" instance=ExtResource("1_uvq0i")]
 power = 60.0

@@ -7,7 +7,7 @@ var damage : float
 var life_time : float
 var current_life_time : float = 0.0
 var torque
-
+var who_shot
 
 func _process(delta):
 	if transform.basis_xform(Vector2.RIGHT).x < 0:
@@ -22,7 +22,7 @@ func _process(delta):
 			torque = 0
 		else:
 			queue_free()
-		if collider.has_method("damage"):
+		if collider.has_method("damage") and collider != who_shot:
 			collider.damage(damage)
 			queue_free()
 	else:

@@ -17,10 +17,11 @@ signal hand_shake(offset, torque)
 signal action_success()
 
 
-func action():
+func action(who_shot):
 	if not $Barrel.has_overlapping_bodies() and is_loaded:
 		var proj = projectile.instantiate()
 		get_tree().root.add_child(proj)
+		proj.who_shot = who_shot
 		proj.global_transform = $Muzzle.global_transform
 		proj.push(Vector2(power, 0), power_torque)
 		proj.damage = damage

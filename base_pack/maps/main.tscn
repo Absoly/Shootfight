@@ -86,14 +86,14 @@ spawn_delay = 30.0
 random_spawnpoint = false
 
 [node name="CrateSpawner5" type="Node2D" parent="Crates"]
-position = Vector2(848, -472)
+position = Vector2(816, -477)
 script = ExtResource("3_eyu0p")
 player_scene = ExtResource("7_73vyw")
 spawn_delay = 30.0
 random_spawnpoint = false
 
 [node name="CrateSpawner6" type="Node2D" parent="Crates"]
-position = Vector2(288, -488)
+position = Vector2(347, -490)
 script = ExtResource("3_eyu0p")
 player_scene = ExtResource("7_73vyw")
 spawn_delay = 30.0

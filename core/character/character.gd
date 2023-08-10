@@ -85,7 +85,7 @@ func _process(delta):
 	
 	if Input.is_action_pressed("action_" + number):
 		if weapon:
-			weapon.action()
+			weapon.action(self)
 
 
 func can_jump():
