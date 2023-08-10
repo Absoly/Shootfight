@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1spt5wlqxwmy"]
+
+[ext_resource type="PackedScene" uid="uid://b1xtvi7olj2kc" path="res://core/shooting/shooting.tscn" id="1_wrmnt"]
+
+[node name="AWP" instance=ExtResource("1_wrmnt")]
+power = 80.0
+aim_rate = 1.0
+bullet_life_time = 3.0

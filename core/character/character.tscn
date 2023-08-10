@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://biyys4fgxnb75"]
+[gd_scene load_steps=6 format=3 uid="uid://biyys4fgxnb75"]
 
 [ext_resource type="Script" path="res://core/character/character.gd" id="1_cww75"]
-[ext_resource type="Texture2D" uid="uid://dl3j10xgra61b" path="res://odin.png" id="2_ciodm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rkgtg"]
 friction = 0.0
@@ -27,7 +26,6 @@ script = ExtResource("1_cww75")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
-texture = ExtResource("2_ciodm")
 
 [node name="Arm" type="Node2D" parent="Sprite2D"]
 position = Vector2(10.5, 3.25)

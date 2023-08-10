@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bifvgki0l8nw8"]
+
+[ext_resource type="PackedScene" uid="uid://b6h7y55ellhhm" path="res://base_pack/projectiles/bullet/bullet.tscn" id="1_cjewb"]
+
+[sub_resource type="Gradient" id="Gradient_cbdxw"]
+colors = PackedColorArray(0.821457, 0.266581, 6.73831e-07, 1, 0.980798, 0.742911, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ux8ix"]
+gradient = SubResource("Gradient_cbdxw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a2gx1"]
+particle_flag_disable_z = true
+gravity = Vector3(0, -20, 0)
+initial_velocity_min = 600.0
+initial_velocity_max = 600.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 5.0
+scale_max = 20.0
+color = Color(0.992157, 0.698039, 0.376471, 1)
+color_ramp = SubResource("GradientTexture1D_ux8ix")
+
+[node name="Fire" instance=ExtResource("1_cjewb")]
+
+[node name="Line2D" parent="." index="2"]
+visible = false
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="3"]
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_a2gx1")

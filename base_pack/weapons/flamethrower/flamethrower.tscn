@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b15mmjaulord5"]
+
+[ext_resource type="PackedScene" uid="uid://b1xtvi7olj2kc" path="res://core/shooting/shooting.tscn" id="1_sw5w4"]
+[ext_resource type="PackedScene" uid="uid://bifvgki0l8nw8" path="res://base_pack/weapons/flamethrower/fire.tscn" id="2_37tjj"]
+[ext_resource type="Texture2D" uid="uid://7gil4xbuaywk" path="res://base_pack/weapons/flamethrower/Flamethrower.png" id="3_2vpfb"]
+
+[node name="Flamethrower" instance=ExtResource("1_sw5w4")]
+projectile = ExtResource("2_37tjj")
+power = 40.0
+reload_time = 0.01
+damage = 4.0
+range = 500.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_2vpfb")
+
+[node name="Barrel" parent="." index="1"]
+position = Vector2(8, -10)
+
+[node name="Muzzle" parent="." index="2"]
+position = Vector2(24, -10)

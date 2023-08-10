@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1xtvi7olj2kc"]
+
+[ext_resource type="Script" path="res://core/shooting/shooting.gd" id="1_y3gk2"]
+[ext_resource type="PackedScene" uid="uid://b6h7y55ellhhm" path="res://base_pack/projectiles/bullet/bullet.tscn" id="2_odhwj"]
+[ext_resource type="Texture2D" uid="uid://bkqvxb8uhy0k5" path="res://base_pack/weapons/awp/AWP.png" id="3_evawm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubexp"]
+size = Vector2(32, 4)
+
+[node name="Weapon" type="Node2D"]
+z_index = 10
+script = ExtResource("1_y3gk2")
+projectile = ExtResource("2_odhwj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("3_evawm")
+
+[node name="Barrel" type="Area2D" parent="."]
+position = Vector2(12, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel"]
+shape = SubResource("RectangleShape2D_ubexp")
+
+[node name="Muzzle" type="Node2D" parent="."]
+position = Vector2(28, -2)

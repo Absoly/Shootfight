@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6h7y55ellhhm"]
+
+[ext_resource type="Script" path="res://core/projectile.gd" id="1_coubu"]
+[ext_resource type="Texture2D" uid="uid://xra6nsmsgyre" path="res://base_pack/projectiles/bullet/bullet.png" id="2_7xo1v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n2qj"]
+size = Vector2(16, 8)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g7vlq"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_0ko62"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[node name="Bullet" type="AnimatableBody2D"]
+self_modulate = Color(5, 5, 5, 1)
+sync_to_physics = false
+script = ExtResource("1_coubu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3n2qj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_7xo1v")
+
+[node name="Line2D" type="Line2D" parent="."]
+material = SubResource("CanvasItemMaterial_g7vlq")
+position = Vector2(-147, 0)
+rotation = -3.14159
+points = PackedVector2Array(0, 0, -146.255, 0)
+width = 2.95
+default_color = Color(0.945098, 0.658824, 0.415686, 1)
+gradient = SubResource("Gradient_0ko62")
