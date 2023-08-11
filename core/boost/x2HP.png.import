@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj33kaxbpobsu"
-path="res://.godot/imported/hp_boost_x2.png-5c5b3adb118aae394064f6ec457ee4df.ctex"
+uid="uid://didxosfdhg6m6"
+path="res://.godot/imported/x2HP.png-13a600b8c282103cab0487ab50e7c7e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://core/boost/hp_boost_x2.png"
-dest_files=["res://.godot/imported/hp_boost_x2.png-5c5b3adb118aae394064f6ec457ee4df.ctex"]
+source_file="res://core/boost/x2HP.png"
+dest_files=["res://.godot/imported/x2HP.png-13a600b8c282103cab0487ab50e7c7e9.ctex"]
 
 [params]
 

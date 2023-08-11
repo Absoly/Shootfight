@@ -14,6 +14,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [node name="Bullet" type="AnimatableBody2D"]
 self_modulate = Color(5, 5, 5, 1)
+collision_layer = 0
 sync_to_physics = false
 script = ExtResource("1_coubu")
 

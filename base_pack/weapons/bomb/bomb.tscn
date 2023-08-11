@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://i6qinojo4nvc"]
+
+[ext_resource type="PackedScene" uid="uid://b1xtvi7olj2kc" path="res://core/shooting/shooting.tscn" id="1_i8wsw"]
+[ext_resource type="PackedScene" uid="uid://ia835pc73eyg" path="res://base_pack/projectiles/bomb/bomb.tscn" id="2_6rn6h"]
+[ext_resource type="Texture2D" uid="uid://uoxlvn8aegc" path="res://base_pack/projectiles/bomb/bomb.png" id="2_cjoyh"]
+
+[node name="Bomb" instance=ExtResource("1_i8wsw")]
+projectile = ExtResource("2_6rn6h")
+power = 40.0
+power_torque = 3.0
+reload_time = 3.0
+range = 1000.0
+bullet_life_time = 5.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_cjoyh")

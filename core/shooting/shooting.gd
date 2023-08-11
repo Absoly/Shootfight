@@ -21,6 +21,10 @@ func action(who_shot):
 	if not $Barrel.has_overlapping_bodies() and is_loaded:
 		var proj = projectile.instantiate()
 		get_tree().root.add_child(proj)
+		if who_shot.get_collision_layer() == 2:
+			proj.set_collision_mask_value(3, true)
+		else:
+			proj.set_collision_mask_value(2, true)
 		proj.who_shot = who_shot
 		proj.global_transform = $Muzzle.global_transform
 		proj.push(Vector2(power, 0), power_torque)

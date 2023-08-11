@@ -1,6 +1,7 @@
 extends AnimatableBody2D
 
 @export var stay_in_ground : bool
+@export var explosive : bool
 
 var velocity
 var damage : float
@@ -20,6 +21,10 @@ func _process(delta):
 		if stay_in_ground:
 			velocity = Vector2.ZERO
 			torque = 0
+			if explosive:
+				await get_tree().create_timer(2.0).timeout
+				$Sprite2D.visible = false
+				$Explode.emitting = true
 		else:
 			queue_free()
 		if collider.has_method("damage") and collider != who_shot:
