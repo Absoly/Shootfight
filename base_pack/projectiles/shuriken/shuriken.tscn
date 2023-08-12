@@ -9,8 +9,8 @@ script = ExtResource("1_48a3d")
 stay_in_ground = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(3, 3)
 texture = ExtResource("2_i67sm")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, -55, 8, -8, 55, 0, 8, 8, 0, 55, -8, 8, -53, 0, -8, -8)
+polygon = PackedVector2Array(0, -36, 8, -8, 36, 0, 8, 8, 0, 36, -8, 8, -36, 0, -8, -8)
