@@ -9,6 +9,7 @@ var current_life_time : float = 0.0
 var torque
 var who_shot
 
+
 func _process(delta):
 	if transform.basis_xform(Vector2.RIGHT).x < 0:
 		rotate(-torque * delta)
