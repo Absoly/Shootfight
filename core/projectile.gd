@@ -10,6 +10,7 @@ var current_life_time : float = 0.0
 var torque
 var who_shot
 
+
 func _process(delta):
 	if transform.basis_xform(Vector2.RIGHT).x < 0:
 		rotate(-torque * delta)
@@ -33,6 +34,7 @@ func _process(delta):
 	else:
 		current_life_time += delta
 		if current_life_time > life_time:
+			await create_tween().tween_property(self, "modulate", Color.TRANSPARENT, 0.2).finished
 			queue_free()
 
 

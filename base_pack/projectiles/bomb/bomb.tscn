@@ -1,46 +1,74 @@
-[gd_scene load_steps=7 format=3 uid="uid://ia835pc73eyg"]
+[gd_scene load_steps=11 format=3 uid="uid://c2xdk1nban7xj"]
 
-[ext_resource type="Texture2D" uid="uid://uoxlvn8aegc" path="res://base_pack/projectiles/bomb/bomb.png" id="1_ilsds"]
-[ext_resource type="Script" path="res://core/projectile.gd" id="1_rg6ne"]
+[ext_resource type="Script" path="res://core/explosive.gd" id="1_kbxhm"]
+[ext_resource type="Texture2D" uid="uid://uoxlvn8aegc" path="res://base_pack/projectiles/bomb/bomb.png" id="1_so25m"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0k40e"]
-size = Vector2(24, 64)
+[sub_resource type="CircleShape2D" id="CircleShape2D_pkgir"]
+radius = 400.0
 
-[sub_resource type="Gradient" id="Gradient_rw5ou"]
-colors = PackedColorArray(0.601377, 0.187645, 0.0176523, 1, 0.885157, 0.725659, 0, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x25e"]
+size = Vector2(18, 48)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_g8nwy"]
-gradient = SubResource("Gradient_rw5ou")
+[sub_resource type="Gradient" id="Gradient_xxr8o"]
+offsets = PackedFloat32Array(0.60767, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.254902, 0.254902, 0.254902, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1fppx"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bpjkr"]
+gradient = SubResource("Gradient_xxr8o")
+width = 64
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_arau5"]
 particle_flag_disable_z = true
-direction = Vector3(0, 0, 0)
 spread = 180.0
 gravity = Vector3(0, 0, 0)
-initial_velocity_min = 140.26
-initial_velocity_max = 358.35
+initial_velocity_min = 140.69
+initial_velocity_max = 893.4
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
-scale_min = 10.0
-scale_max = 50.0
-color_ramp = SubResource("GradientTexture1D_g8nwy")
+color_ramp = SubResource("GradientTexture1D_bpjkr")
+turbulence_enabled = true
+turbulence_noise_strength = 10.14
+turbulence_noise_scale = 0.54
+turbulence_noise_speed_random = 0.69
+turbulence_influence_min = 0.03
+turbulence_influence_max = 0.13
 
-[node name="bomb" type="AnimatableBody2D"]
-sync_to_physics = false
-script = ExtResource("1_rg6ne")
-stay_in_ground = true
-explosive = true
+[sub_resource type="Gradient" id="Gradient_37405"]
+offsets = PackedFloat32Array(0.00835655, 0.832869)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sm78a"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_io1gj"]
+width = 32
+height = 32
+color_ramp = SubResource("Gradient_37405")
+noise = SubResource("FastNoiseLite_sm78a")
+
+[node name="Bomb" type="RigidBody2D"]
+mass = 0.1
+script = ExtResource("1_kbxhm")
+damage = 100.0
+explosion_area = NodePath("ExplosionArea")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(4, 4)
-texture = ExtResource("1_ilsds")
+scale = Vector2(3, 3)
+texture = ExtResource("1_so25m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_0k40e")
+[node name="ExplosionArea" type="Area2D" parent="."]
+monitorable = false
 
-[node name="Explode" type="GPUParticles2D" parent="."]
+[node name="ExplosionShape" type="CollisionShape2D" parent="ExplosionArea"]
+shape = SubResource("CircleShape2D_pkgir")
+
+[node name="BombShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8x25e")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
-amount = 100
-process_material = SubResource("ParticleProcessMaterial_1fppx")
+amount = 400
+process_material = SubResource("ParticleProcessMaterial_arau5")
+texture = SubResource("NoiseTexture2D_io1gj")
 one_shot = true
 explosiveness = 1.0
+randomness = 0.6

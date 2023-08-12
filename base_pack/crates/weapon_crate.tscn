@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://beuqdyc0jhpup" path="res://base_pack/weapons/ak/ak.tscn" id="3_h3w1p"]
 [ext_resource type="PackedScene" uid="uid://b15mmjaulord5" path="res://base_pack/weapons/flamethrower/flamethrower.tscn" id="4_v6adi"]
 [ext_resource type="PackedScene" uid="uid://5qjhaagwperv" path="res://base_pack/weapons/shuriken/shuriken.tscn" id="5_6m1nb"]
-[ext_resource type="PackedScene" uid="uid://i6qinojo4nvc" path="res://base_pack/weapons/bomb/bomb.tscn" id="6_ow4m5"]
+[ext_resource type="PackedScene" uid="uid://yon3tb17uxpx" path="res://base_pack/weapons/bomb/bomb.tscn" id="6_ttd0i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipuq6"]
 size = Vector2(128, 128)
@@ -15,7 +15,7 @@ size = Vector2(128, 128)
 max_contacts_reported = 10
 contact_monitor = true
 script = ExtResource("1_pqdew")
-weapon_scene = Array[PackedScene]([ExtResource("2_vpn44"), ExtResource("3_h3w1p"), ExtResource("4_v6adi"), ExtResource("5_6m1nb"), ExtResource("6_ow4m5")])
+weapon_scene = Array[PackedScene]([ExtResource("2_vpn44"), ExtResource("3_h3w1p"), ExtResource("4_v6adi"), ExtResource("5_6m1nb"), ExtResource("6_ttd0i")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://3d2l32we2w4b"]
+
+[ext_resource type="Script" path="res://core/ui/root/root.gd" id="1_eitye"]
+[ext_resource type="PackedScene" uid="uid://1aw1hvflumjw" path="res://core/ui/spawn_weapon/spawn_weapon.tscn" id="1_geerw"]
+
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eitye")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpawnWeapon" parent="CenterContainer" instance=ExtResource("1_geerw")]
+visible = false
+layout_mode = 2
