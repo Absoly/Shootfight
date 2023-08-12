@@ -55,6 +55,7 @@ func rotate_character(angle, delta):
 	
 	sprite.rotation = move_toward(sprite.rotation, sprite.rotation + angle, delta * aim_rate)
 
+
 func _process(delta):
 	jump_cooldown = move_toward(jump_cooldown, 0.0, delta)
 	fly_control_cooldown = move_toward(fly_control_cooldown, 0.0, delta)
@@ -151,7 +152,7 @@ func damage(val):
 		queue_free()
 
 
-func _on_weapon_hand_shake(offset, torque):
+func _on_item_hand_shake(offset, torque):
 	arm.rotate(-torque)
 
 
@@ -159,7 +160,7 @@ func pick_weapon(new_weapon: Node2D):
 	if weapon:
 		weapon.queue_free()
 		if weapon.has_signal("hand_shake"):
-			weapon.hand_shake.disconnect(_on_weapon_hand_shake)
+			weapon.hand_shake.disconnect(_on_item_hand_shake)
 	weapon = new_weapon
 	if weapon.get_parent():
 		weapon.reparent($Sprite2D/Arm)
@@ -168,4 +169,4 @@ func pick_weapon(new_weapon: Node2D):
 	weapon.position = Vector2.ZERO
 	weapon.rotation = 0
 	if weapon.has_signal("hand_shake"):
-		weapon.hand_shake.connect(_on_weapon_hand_shake)
+		weapon.hand_shake.connect(_on_item_hand_shake)

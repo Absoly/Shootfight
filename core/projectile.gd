@@ -28,6 +28,7 @@ func _process(delta):
 	else:
 		current_life_time += delta
 		if current_life_time > life_time:
+			await create_tween().tween_property(self, "modulate", Color.TRANSPARENT, 0.2).finished
 			queue_free()
 
 
