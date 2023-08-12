@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://be8bxcaye1t4w"]
+[gd_scene load_steps=11 format=3 uid="uid://be8bxcaye1t4w"]
 
 [ext_resource type="Script" path="res://base_pack/maps/main.gd" id="1_fbomf"]
 [ext_resource type="TileSet" uid="uid://qscp8jk2rxy" path="res://base_pack/tileset.tres" id="2_7ejl8"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c0w777efacijn" path="res://core/spawner/spawnpoint.tscn" id="6_x0r4b"]
 [ext_resource type="PackedScene" uid="uid://uuxdu7wodf11" path="res://base_pack/crates/weapon_crate.tscn" id="7_73vyw"]
 [ext_resource type="PackedScene" uid="uid://1bx1h1ovfwd7" path="res://core/boost/boost.tscn" id="8_cnaro"]
+[ext_resource type="PackedScene" uid="uid://ceby8uef8ts1" path="res://base_pack/crates/boost_crate.tscn" id="10_eqpwc"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_fbomf")
@@ -60,44 +61,44 @@ position = Vector2(-1856, 64)
 [node name="Spawnpoint5" parent="." instance=ExtResource("6_x0r4b")]
 position = Vector2(3384, 1488)
 
-[node name="Crates" type="Node2D" parent="."]
+[node name="WeaponCrates" type="Node2D" parent="."]
 
-[node name="CrateSpawner" type="Node2D" parent="Crates"]
+[node name="WeaponCrateSpawner" type="Node2D" parent="WeaponCrates"]
 position = Vector2(-2336, 272)
 script = ExtResource("3_eyu0p")
 player_scene = ExtResource("7_73vyw")
 spawn_delay = 30.0
 random_spawnpoint = false
 
-[node name="CrateSpawner2" type="Node2D" parent="Crates"]
+[node name="WeaponCrateSpawner2" type="Node2D" parent="WeaponCrates"]
 position = Vector2(3088, 392)
 script = ExtResource("3_eyu0p")
 player_scene = ExtResource("7_73vyw")
 spawn_delay = 30.0
 random_spawnpoint = false
 
-[node name="CrateSpawner3" type="Node2D" parent="Crates"]
+[node name="WeaponCrateSpawner3" type="Node2D" parent="WeaponCrates"]
 position = Vector2(3688, 1624)
 script = ExtResource("3_eyu0p")
 player_scene = ExtResource("7_73vyw")
 spawn_delay = 30.0
 random_spawnpoint = false
 
-[node name="CrateSpawner4" type="Node2D" parent="Crates"]
+[node name="WeaponCrateSpawner4" type="Node2D" parent="WeaponCrates"]
 position = Vector2(-2096, 1640)
 script = ExtResource("3_eyu0p")
 player_scene = ExtResource("7_73vyw")
 spawn_delay = 30.0
 random_spawnpoint = false
 
-[node name="CrateSpawner5" type="Node2D" parent="Crates"]
+[node name="WeaponCrateSpawner5" type="Node2D" parent="WeaponCrates"]
 position = Vector2(816, -477)
 script = ExtResource("3_eyu0p")
 player_scene = ExtResource("7_73vyw")
 spawn_delay = 30.0
 random_spawnpoint = false
 
-[node name="CrateSpawner6" type="Node2D" parent="Crates"]
+[node name="WeaponCrateSpawner6" type="Node2D" parent="WeaponCrates"]
 position = Vector2(347, -490)
 script = ExtResource("3_eyu0p")
 player_scene = ExtResource("7_73vyw")
@@ -106,3 +107,35 @@ random_spawnpoint = false
 
 [node name="Boost" parent="." instance=ExtResource("8_cnaro")]
 position = Vector2(592, -632)
+
+[node name="BoostCrates" type="Node2D" parent="."]
+
+[node name="BoostCrateSpawner" type="Node2D" parent="BoostCrates"]
+position = Vector2(-571, -260)
+script = ExtResource("3_eyu0p")
+player_scene = ExtResource("10_eqpwc")
+random_spawnpoint = false
+
+[node name="BoostCrateSpawner2" type="Node2D" parent="BoostCrates"]
+position = Vector2(1867, -343)
+script = ExtResource("3_eyu0p")
+player_scene = ExtResource("10_eqpwc")
+random_spawnpoint = false
+
+[node name="BoostCrateSpawner3" type="Node2D" parent="BoostCrates"]
+position = Vector2(3435, -965)
+script = ExtResource("3_eyu0p")
+player_scene = ExtResource("10_eqpwc")
+random_spawnpoint = false
+
+[node name="BoostCrateSpawner4" type="Node2D" parent="BoostCrates"]
+position = Vector2(-1613, 1556)
+script = ExtResource("3_eyu0p")
+player_scene = ExtResource("10_eqpwc")
+random_spawnpoint = false
+
+[node name="BoostCrateSpawner5" type="Node2D" parent="BoostCrates"]
+position = Vector2(3219, 1562)
+script = ExtResource("3_eyu0p")
+player_scene = ExtResource("10_eqpwc")
+random_spawnpoint = false

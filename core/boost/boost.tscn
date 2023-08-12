@@ -7,6 +7,7 @@
 size = Vector2(500, 500)
 
 [node name="Boost" type="Area2D"]
+collision_mask = 7
 script = ExtResource("1_fucvr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

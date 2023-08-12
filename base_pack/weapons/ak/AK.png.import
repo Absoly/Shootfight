@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://de588i1x2y7tf"
-path="res://.godot/imported/ak.png-53db69d1a6b9143d1a8375f1a81f44ec.ctex"
+path="res://.godot/imported/AK.png-8b29f39d5aa0c1bde8c0fa17e589a27e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://base_pack/weapons/ak/ak.png"
-dest_files=["res://.godot/imported/ak.png-53db69d1a6b9143d1a8375f1a81f44ec.ctex"]
+source_file="res://base_pack/weapons/ak/AK.png"
+dest_files=["res://.godot/imported/AK.png-8b29f39d5aa0c1bde8c0fa17e589a27e.ctex"]
 
 [params]
 

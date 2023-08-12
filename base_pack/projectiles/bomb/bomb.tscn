@@ -10,8 +10,8 @@ radius = 400.0
 size = Vector2(18, 48)
 
 [sub_resource type="Gradient" id="Gradient_xxr8o"]
-offsets = PackedFloat32Array(0.60767, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.254902, 0.254902, 0.254902, 0)
+offsets = PackedFloat32Array(0.355556, 1)
+colors = PackedColorArray(0.902415, 0.439975, 0.268731, 1, 0.843137, 0.607843, 0.027451, 0.32549)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_bpjkr"]
 gradient = SubResource("Gradient_xxr8o")
@@ -26,6 +26,8 @@ initial_velocity_max = 893.4
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 color_ramp = SubResource("GradientTexture1D_bpjkr")
+hue_variation_min = -0.1
+hue_variation_max = 0.15
 turbulence_enabled = true
 turbulence_noise_strength = 10.14
 turbulence_noise_scale = 0.54
@@ -56,6 +58,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("1_so25m")
 
 [node name="ExplosionArea" type="Area2D" parent="."]
+collision_mask = 7
 monitorable = false
 
 [node name="ExplosionShape" type="CollisionShape2D" parent="ExplosionArea"]

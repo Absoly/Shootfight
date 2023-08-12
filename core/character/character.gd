@@ -15,8 +15,15 @@ var tilemap : TileMap
 var move_direction : Vector2
 var rotate_direction : float
 var weapon
-var is_boosting = false
 var target_point
+
+var speed_booster_timer = 0
+var hp_booster_timer = 0
+var damage_booster_timer = 0
+
+var is_speed_boosting = false
+var is_hp_boosting = false
+var is_damage_boosting = false
 
 # Physics related
 var floor_normal = null
@@ -87,7 +94,28 @@ func _process(delta):
 	if Input.is_action_pressed("action_" + number):
 		if weapon:
 			weapon.action(self)
-
+	
+	# Boosting
+	if speed_booster_timer > 0:
+		speed_booster_timer -= delta
+	elif speed_booster_timer < 0:
+		is_speed_boosting = false
+	
+	if is_speed_boosting:
+		acceleration = 3000
+	else:
+		acceleration = 2000
+	
+	if hp_booster_timer > 0:
+		hp_booster_timer -= delta
+	elif hp_booster_timer < 0:
+		is_hp_boosting = false
+	
+	if is_hp_boosting:
+		health *= 2
+		healthbar.size = Vector2(200, 27)
+		healthbar.position = Vector2(-100, -70)
+		print(health)
 
 func can_jump():
 	return jump_cooldown <= 0
@@ -170,3 +198,14 @@ func pick_weapon(new_weapon: Node2D):
 	weapon.rotation = 0
 	if weapon.has_signal("hand_shake"):
 		weapon.hand_shake.connect(_on_item_hand_shake)
+
+func boost(booster):
+	if booster == "speed":
+		speed_booster_timer = 10
+		is_speed_boosting = true
+	if booster == "hp":
+		hp_booster_timer = 10
+		is_hp_boosting = true
+	if booster == "damage":
+		damage_booster_timer = 10
+		is_damage_boosting = true
