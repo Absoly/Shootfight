@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://be8bxcaye1t4w"]
+[gd_scene load_steps=10 format=3 uid="uid://be8bxcaye1t4w"]
 
 [ext_resource type="Script" path="res://base_pack/maps/main.gd" id="1_fbomf"]
 [ext_resource type="TileSet" uid="uid://qscp8jk2rxy" path="res://base_pack/tileset.tres" id="2_7ejl8"]
+[ext_resource type="PackedScene" uid="uid://3d2l32we2w4b" path="res://core/ui/root/root.tscn" id="2_dl1h4"]
 [ext_resource type="Script" path="res://core/spawner/spawner.gd" id="3_eyu0p"]
 [ext_resource type="PackedScene" uid="uid://c2m5xfjyjrqqn" path="res://base_pack/players/odin/odin.tscn" id="4_feyl3"]
 [ext_resource type="PackedScene" uid="uid://bn4ri0ulv7xvl" path="res://base_pack/players/perviy/perviy.tscn" id="5_ci6uh"]
@@ -11,6 +12,10 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_fbomf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Root" parent="CanvasLayer" instance=ExtResource("2_dl1h4")]
 
 [node name="TileMap" type="TileMap" parent="." groups=["Tilemap"]]
 scale = Vector2(8, 8)
