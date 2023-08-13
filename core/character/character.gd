@@ -115,7 +115,6 @@ func can_climb():
 	
 	return false
 
-
 func can_control_fly():
 	return fly_control_cooldown >= 0
 
