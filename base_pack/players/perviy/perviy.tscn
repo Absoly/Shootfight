@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bgi5aeq3pmwpt" path="res://base_pack/players/perviy/perviy.png" id="2_34xpy"]
 
 [node name="Perviy" instance=ExtResource("1_jynq3")]
-collision_layer = 4
 number = "2"
 
 [node name="Skin" parent="Pivot" index="0"]

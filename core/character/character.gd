@@ -11,20 +11,15 @@ extends RigidBody2D
 @onready var skin = $Pivot/Skin
 @onready var healthbar = $HealthBar
 @onready var arm = $Pivot/Arm
+@onready var interactable_area = $InteractableArea
+@onready var boosts = $Boosts
 
 var tilemap : TileMap
 var move_direction : Vector2
 var rotate_direction : float
-var weapon
+var item
 var target_point
 
-var speed_booster_timer = 0
-var hp_booster_timer = 0
-var damage_booster_timer = 0
-
-var is_speed_boosting = false
-var is_hp_boosting = false
-var is_damage_boosting = false
 
 # Physics related
 var floor_normal = null
@@ -41,6 +36,15 @@ func _ready():
 func _unhandled_input(event):
 	move_direction = Input.get_vector("move_left_" + number, "move_right_" + number, "move_up_" + number, "move_down_" + number)
 	rotate_direction = Input.get_axis("rotate_left_" + number, "rotate_right_" + number)
+	
+	if event.is_action_pressed("interact_" + number):
+		interact()
+
+
+func interact():
+	for body in interactable_area.get_overlapping_bodies():
+		if body.has_method("interact"):
+			body.interact(self)
 
 
 func get_closest_enemy():
@@ -52,14 +56,15 @@ func get_closest_enemy():
 	
 	if enemies.size():
 		return enemies[0]
+	
 	return null
 
 
 func rotate_character(angle, delta):
 	var aim_rate = 10.0
 	
-	if weapon:
-		aim_rate = weapon.aim_rate
+	if item and item.aim_rate:
+		aim_rate = item.aim_rate
 	
 	pivot.rotation = move_toward(pivot.rotation, pivot.rotation + angle, delta * aim_rate)
 
@@ -75,7 +80,7 @@ func _process(delta):
 	
 	var enemy = get_closest_enemy()
 	
-	if enemy and weapon and global_position.distance_to(enemy.global_position) < weapon.range:
+	if enemy and item and item.range and global_position.distance_to(enemy.global_position) < item.range:
 		target_point = enemy.global_position
 	elif move_direction != Vector2.ZERO:
 		target_point = (global_position + move_direction * 1000)
@@ -93,30 +98,9 @@ func _process(delta):
 		rotate_character(rotate_direction, delta)
 	
 	if Input.is_action_pressed("action_" + number):
-		if weapon:
-			weapon.action(self)
-	
-	# Boosting
-	if speed_booster_timer > 0:
-		speed_booster_timer -= delta
-	elif speed_booster_timer < 0:
-		is_speed_boosting = false
-	
-	if is_speed_boosting:
-		acceleration = 3000
-	else:
-		acceleration = 2000
-	
-	if hp_booster_timer > 0:
-		hp_booster_timer -= delta
-	elif hp_booster_timer < 0:
-		is_hp_boosting = false
-	
-	if is_hp_boosting:
-		health *= 2
-		healthbar.size = Vector2(200, 27)
-		healthbar.position = Vector2(-100, -70)
-		print(health)
+		if item and item.has_method("action"):
+			item.action(self)
+
 
 func can_jump():
 	return jump_cooldown <= 0
@@ -127,14 +111,6 @@ func can_climb():
 	
 	var tile_data = tilemap.get_cell_tile_data(0, tile_coords)
 	if tile_data and tile_data.get_custom_data("Climb"):
-		return true
-	
-	var tile_data_up = tilemap.get_cell_tile_data(0, tile_coords + Vector2i(0, -1))
-	if tile_data_up and tile_data_up.get_custom_data("Climb"):
-		return true
-	
-	var tile_data_down = tilemap.get_cell_tile_data(0, tile_coords + Vector2i(0, 1))
-	if tile_data_down and tile_data_down.get_custom_data("Climb"):
 		return true
 	
 	return false
@@ -185,28 +161,22 @@ func _on_item_hand_shake(offset, torque):
 	arm.rotate(-torque)
 
 
-func pick_weapon(new_weapon: Node2D):
-	if weapon:
-		weapon.queue_free()
-		if weapon.has_signal("hand_shake"):
-			weapon.hand_shake.disconnect(_on_item_hand_shake)
-	weapon = new_weapon
-	if weapon.get_parent():
-		weapon.reparent(arm)
+func pick_item(new_item: Node2D):
+	if item:
+		item.queue_free()
+		if item.has_signal("hand_shake"):
+			item.hand_shake.disconnect(_on_item_hand_shake)
+	item = new_item
+	if item.get_parent():
+		item.reparent(arm)
 	else:
-		arm.add_child(weapon)
-	weapon.position = Vector2.ZERO
-	weapon.rotation = 0
-	if weapon.has_signal("hand_shake"):
-		weapon.hand_shake.connect(_on_item_hand_shake)
+		arm.add_child(item)
+	item.position = Vector2.ZERO
+	item.rotation = 0
+	if item.has_signal("hand_shake"):
+		item.hand_shake.connect(_on_item_hand_shake)
 
-func boost(booster):
-	if booster == "speed":
-		speed_booster_timer = 10
-		is_speed_boosting = true
-	if booster == "hp":
-		hp_booster_timer = 10
-		is_hp_boosting = true
-	if booster == "damage":
-		damage_booster_timer = 10
-		is_damage_boosting = true
+
+func add_boost(boost: Boost):
+	boosts.add_child(boost)
+	boost.start(self)

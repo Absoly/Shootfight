@@ -1,7 +1,9 @@
 extends RigidBody2D
 
-var boosters = ["speed", "hp", "damage"]
+@export var boosters : Array[PackedScene]
 
-func _on_body_entered(body):
-	if body.has_method("boost"):
-		body.boost(boosters[randi() % boosters.size()])
+
+func interact(target: Object):
+	if target.has_method("add_boost"):
+		target.add_boost(boosters.pick_random().instantiate())
+		queue_free()

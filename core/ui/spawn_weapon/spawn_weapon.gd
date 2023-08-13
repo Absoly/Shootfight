@@ -21,7 +21,7 @@ func _on_list_item_activated(index):
 		var weapon = weapons[selected_weapon].instantiate()
 		var characters = get_tree().get_nodes_in_group("Character")
 		if characters.size():
-			characters[0].pick_weapon(weapon)
+			characters[0].pick_item(weapon)
 		visible = false
 		list.deselect_all()
 		selected_weapon = null

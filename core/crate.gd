@@ -1,10 +1,10 @@
-extends RigidBody2D
+extends Node2D
+class_name Crate
+
+@export var items : Array[PackedScene]
 
 
-@export var weapon_scene : Array[PackedScene]
-
-func _on_body_entered(body):
-	if body.has_method("pick_weapon"):
-		var weapon = weapon_scene.pick_random().instantiate()
-		body.call_deferred("pick_weapon", weapon)
+func interact(target: Object):
+	if target.has_method("pick_item"):
+		target.pick_item(items.pick_random().instantiate())
 		queue_free()

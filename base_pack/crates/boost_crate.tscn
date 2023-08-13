@@ -1,22 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceby8uef8ts1"]
+[gd_scene load_steps=5 format=3 uid="uid://ceby8uef8ts1"]
 
 [ext_resource type="Texture2D" uid="uid://dnecfv84q7l6m" path="res://base_pack/crates/weapon_crate.png" id="1_33yxw"]
 [ext_resource type="Script" path="res://core/boost/boost_crate.gd" id="1_hswh6"]
+[ext_resource type="PackedScene" uid="uid://dh3yiv44h2agh" path="res://base_pack/boosts/speed_boost.tscn" id="2_4xc5q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfcr8"]
 size = Vector2(128, 128)
 
-[node name="boost_crate" type="RigidBody2D"]
+[node name="BoostCrate" type="RigidBody2D"]
+z_index = -1
+collision_layer = 16
+collision_mask = 16
 max_contacts_reported = 10
 contact_monitor = true
 script = ExtResource("1_hswh6")
+boosters = Array[PackedScene]([ExtResource("2_4xc5q")])
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(0, 0.796078, 0.756863, 1)
 scale = Vector2(4, 4)
 texture = ExtResource("1_33yxw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Shape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wfcr8")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

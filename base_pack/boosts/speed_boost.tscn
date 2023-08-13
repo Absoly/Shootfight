@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh3yiv44h2agh"]
+
+[ext_resource type="Script" path="res://base_pack/boosts/speed_boost.gd" id="1_wqveh"]
+
+[sub_resource type="Gradient" id="Gradient_8rlnu"]
+colors = PackedColorArray(1, 1, 1, 1, 0.29219, 0.29219, 0.29219, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ea30w"]
+gradient = SubResource("Gradient_8rlnu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qrebu"]
+emission_shape = 2
+emission_sphere_radius = 33.41
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 59.67
+initial_velocity_max = 194.81
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = -100.0
+linear_accel_max = -100.0
+scale_min = 14.51
+scale_max = 28.03
+color = Color(0.180392, 0.490196, 0.898039, 1)
+color_ramp = SubResource("GradientTexture1D_ea30w")
+
+[node name="SpeedBoost" type="Node2D"]
+script = ExtResource("1_wqveh")
+speed_boost = 1000.0
+duration = 10.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_qrebu")

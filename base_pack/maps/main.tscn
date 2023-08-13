@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bn4ri0ulv7xvl" path="res://base_pack/players/perviy/perviy.tscn" id="5_ci6uh"]
 [ext_resource type="PackedScene" uid="uid://c0w777efacijn" path="res://core/spawner/spawnpoint.tscn" id="6_x0r4b"]
 [ext_resource type="PackedScene" uid="uid://uuxdu7wodf11" path="res://base_pack/crates/weapon_crate.tscn" id="7_73vyw"]
-[ext_resource type="PackedScene" uid="uid://1bx1h1ovfwd7" path="res://core/boost/boost.tscn" id="8_cnaro"]
+[ext_resource type="PackedScene" uid="uid://djpnj33he6u7f" path="res://core/boost/boost.tscn" id="8_cnaro"]
 [ext_resource type="PackedScene" uid="uid://ceby8uef8ts1" path="res://base_pack/crates/boost_crate.tscn" id="10_eqpwc"]
 
 [node name="Main" type="Node2D"]
@@ -23,6 +23,7 @@ position = Vector2(696, 0)
 zoom = Vector2(0.3, 0.3)
 
 [node name="TileMap" type="TileMap" parent="." groups=["Tilemap"]]
+z_index = -10
 scale = Vector2(8, 8)
 tile_set = ExtResource("2_7ejl8")
 format = 2
