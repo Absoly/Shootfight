@@ -7,9 +7,10 @@ extends RigidBody2D
 @export var health := 100.0
 @export var walkable_slope_angle := 50.0
 
-@onready var sprite = $Sprite2D
+@onready var pivot = $Pivot
+@onready var skin = $Pivot/Skin
 @onready var healthbar = $HealthBar
-@onready var arm = $Sprite2D/Arm
+@onready var arm = $Pivot/Arm
 
 var tilemap : TileMap
 var move_direction : Vector2
@@ -60,7 +61,7 @@ func rotate_character(angle, delta):
 	if weapon:
 		aim_rate = weapon.aim_rate
 	
-	sprite.rotation = move_toward(sprite.rotation, sprite.rotation + angle, delta * aim_rate)
+	pivot.rotation = move_toward(pivot.rotation, pivot.rotation + angle, delta * aim_rate)
 
 
 func _process(delta):
@@ -81,13 +82,13 @@ func _process(delta):
 	else:
 		target_point = null
 	
-	if Vector2.RIGHT.rotated(sprite.rotation).x < 0:
-		sprite.scale.y = -abs(sprite.scale.y)
+	if Vector2.RIGHT.rotated(pivot.rotation).x < 0:
+		pivot.scale.y = -abs(pivot.scale.y)
 	else:
-		sprite.scale.y = abs(sprite.scale.y)
+		pivot.scale.y = abs(pivot.scale.y)
 	
 	if target_point != null:
-		rotate_character(sprite.get_angle_to(target_point), delta)
+		rotate_character(pivot.get_angle_to(target_point), delta)
 	elif rotate_direction:
 		rotate_character(rotate_direction, delta)
 	
@@ -191,9 +192,9 @@ func pick_weapon(new_weapon: Node2D):
 			weapon.hand_shake.disconnect(_on_item_hand_shake)
 	weapon = new_weapon
 	if weapon.get_parent():
-		weapon.reparent($Sprite2D/Arm)
+		weapon.reparent(arm)
 	else:
-		$Sprite2D/Arm.add_child(weapon)
+		arm.add_child(weapon)
 	weapon.position = Vector2.ZERO
 	weapon.rotation = 0
 	if weapon.has_signal("hand_shake"):

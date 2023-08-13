@@ -7,7 +7,7 @@
 radius = 400.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8x25e"]
-size = Vector2(18, 48)
+size = Vector2(54, 96)
 
 [sub_resource type="Gradient" id="Gradient_xxr8o"]
 offsets = PackedFloat32Array(0.355556, 1)

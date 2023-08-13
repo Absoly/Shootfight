@@ -24,13 +24,6 @@ freeze_mode = 1
 linear_damp = 0.1
 script = ExtResource("1_cww75")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
-
-[node name="Arm" type="Node2D" parent="Sprite2D"]
-position = Vector2(10.5, 3.25)
-scale = Vector2(0.25, 0.25)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_16mg4")
 
@@ -44,3 +37,11 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_72lm5")
 value = 100.0
 allow_greater = true
 show_percentage = false
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Skin" type="Sprite2D" parent="Pivot"]
+scale = Vector2(3, 3)
+
+[node name="Arm" type="Node2D" parent="Pivot"]
+position = Vector2(54, 4)

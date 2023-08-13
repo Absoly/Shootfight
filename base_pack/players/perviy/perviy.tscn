@@ -7,5 +7,5 @@
 collision_layer = 4
 number = "2"
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Skin" parent="Pivot" index="0"]
 texture = ExtResource("2_34xpy")

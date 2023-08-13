@@ -6,5 +6,5 @@
 [node name="Odin" instance=ExtResource("1_nsci2")]
 collision_layer = 2
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Skin" parent="Pivot" index="0"]
 texture = ExtResource("2_3j6hw")
