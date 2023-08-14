@@ -27,4 +27,4 @@ position = Vector2(67, -8)
 shape = SubResource("RectangleShape2D_fhjj3")
 
 [node name="Muzzle" parent="." index="2"]
-position = Vector2(97, -9)
+position = Vector2(97, -10)

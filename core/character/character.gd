@@ -38,13 +38,14 @@ func _unhandled_input(event):
 	rotate_direction = Input.get_axis("rotate_left_" + number, "rotate_right_" + number)
 	
 	if event.is_action_pressed("interact_" + number):
-		interact()
+		try_interact()
 
 
-func interact():
+func try_interact():
 	for body in interactable_area.get_overlapping_bodies():
 		if body.has_method("interact"):
 			body.interact(self)
+			break
 
 
 func get_closest_enemy():
@@ -109,7 +110,7 @@ func can_jump():
 func can_climb():
 	var tile_coords = tilemap.local_to_map(tilemap.to_local(global_position))
 	
-	var tile_data = tilemap.get_cell_tile_data(0, tile_coords)
+	var tile_data = tilemap.get_cell_tile_data(1, tile_coords)
 	if tile_data and tile_data.get_custom_data("Climb"):
 		return true
 	

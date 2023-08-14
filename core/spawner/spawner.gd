@@ -7,7 +7,6 @@ extends Node2D
 var entity
 var timer = 0.0
 
-
 func _ready():
 	timer = spawn_delay
 

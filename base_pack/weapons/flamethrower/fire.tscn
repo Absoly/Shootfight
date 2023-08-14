@@ -23,6 +23,7 @@ color = Color(0.992157, 0.698039, 0.376471, 1)
 color_ramp = SubResource("GradientTexture1D_ux8ix")
 
 [node name="Node2D" type="AnimatableBody2D"]
+collision_layer = 0
 sync_to_physics = false
 script = ExtResource("1_aml07")
 
