@@ -7,9 +7,6 @@ extends RigidBody2D
 
 var timeout_counter : float
 var exploded := false
-var who_shot
-var life_time : float
-
 
 func _ready():
 	get_node(explosion_area)

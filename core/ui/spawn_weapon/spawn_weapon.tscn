@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://1aw1hvflumjw"]
+[gd_scene load_steps=8 format=3 uid="uid://1aw1hvflumjw"]
 
 [ext_resource type="Script" path="res://core/ui/spawn_weapon/spawn_weapon.gd" id="1_81yut"]
 [ext_resource type="PackedScene" uid="uid://beuqdyc0jhpup" path="res://base_pack/weapons/ak/ak.tscn" id="2_lf4y4"]
@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://b15mmjaulord5" path="res://base_pack/weapons/flamethrower/flamethrower.tscn" id="4_x8b34"]
 [ext_resource type="PackedScene" uid="uid://5qjhaagwperv" path="res://base_pack/weapons/shuriken/shuriken.tscn" id="5_qtixy"]
 [ext_resource type="PackedScene" uid="uid://yon3tb17uxpx" path="res://base_pack/weapons/bomb/bomb.tscn" id="6_t38u4"]
+[ext_resource type="PackedScene" uid="uid://dpwjkqy4xrs10" path="res://base_pack/weapons/molotov/molotov.tscn" id="7_davuo"]
 
 [node name="SpawnWeapon" type="PanelContainer"]
 script = ExtResource("1_81yut")
-weapons = Array[PackedScene]([ExtResource("2_lf4y4"), ExtResource("3_7bngx"), ExtResource("4_x8b34"), ExtResource("5_qtixy"), ExtResource("6_t38u4")])
+weapons = Array[PackedScene]([ExtResource("2_lf4y4"), ExtResource("3_7bngx"), ExtResource("4_x8b34"), ExtResource("5_qtixy"), ExtResource("6_t38u4"), ExtResource("7_davuo")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://bq7gbttbt70jp"]
+
+[ext_resource type="Script" path="res://base_pack/projectiles/molotov/molotov.gd" id="1_c7r5t"]
+[ext_resource type="Texture2D" uid="uid://djvx60xvkx56b" path="res://base_pack/projectiles/molotov/molotov.png" id="1_oxpno"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqb7w"]
+size = Vector2(40, 60)
+
+[sub_resource type="Gradient" id="Gradient_b4vv1"]
+colors = PackedColorArray(0.912182, 0.370865, 0.158809, 1, 0.870588, 0.623529, 0, 0.698039)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bkx34"]
+gradient = SubResource("Gradient_b4vv1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hmuxh"]
+particle_flag_disable_z = true
+direction = Vector3(0, -100, 0)
+spread = 79.58
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 200.0
+angular_velocity_min = -45.47
+angular_velocity_max = 439.58
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+scale_min = 30.0
+scale_max = 50.0
+color_ramp = SubResource("GradientTexture1D_bkx34")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1q3y3"]
+
+[node name="Molotov" type="RigidBody2D"]
+z_index = 41
+script = ExtResource("1_c7r5t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gqb7w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_oxpno")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(33, -40)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_hmuxh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(22.2114, 22.2114)
+shape = SubResource("CircleShape2D_1q3y3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

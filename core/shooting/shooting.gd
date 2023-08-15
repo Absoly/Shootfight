@@ -25,11 +25,14 @@ func action(who_shot):
 			proj.set_collision_mask_value(3, true)
 		else:
 			proj.set_collision_mask_value(2, true)
-		proj.who_shot = who_shot
+		if "who_shot" in proj:
+			proj.who_shot = who_shot
 		proj.global_transform = $Muzzle.global_transform
 		proj.push(Vector2(power, 0), power_torque)
-		proj.damage = damage
-		proj.life_time = bullet_life_time
+		if "damage" in proj:
+			proj.damage = damage
+		if "life_time" in proj:
+			proj.life_time = bullet_life_time
 		is_loaded = false
 		hand_shake.emit(Vector2(randf() * recoil, randf() * recoil), randf() * recoil)
 		action_success.emit()
