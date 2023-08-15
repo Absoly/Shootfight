@@ -48,6 +48,7 @@ color_ramp = SubResource("Gradient_37405")
 noise = SubResource("FastNoiseLite_sm78a")
 
 [node name="Bomb" type="RigidBody2D"]
+z_index = 41
 mass = 0.1
 script = ExtResource("1_kbxhm")
 damage = 100.0

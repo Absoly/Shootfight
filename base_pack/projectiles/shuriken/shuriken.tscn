@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d2e7e317ius7a" path="res://base_pack/projectiles/shuriken/shuriken.png" id="2_i67sm"]
 
 [node name="Shuriken" type="AnimatableBody2D"]
+z_index = 41
 sync_to_physics = false
 script = ExtResource("1_48a3d")
 stay_in_ground = true

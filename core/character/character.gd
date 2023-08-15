@@ -180,3 +180,7 @@ func pick_item(new_item: Node2D):
 func add_boost(boost: Boost):
 	boosts.add_child(boost)
 	boost.start(self)
+
+func heal(value):
+	health = clamp(health+value, 0.0, 100.0)
+	print(health)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://iv2uq6x1m7lb"]
+
+[ext_resource type="Script" path="res://base_pack/crates/medkit.gd" id="1_ida43"]
+[ext_resource type="Texture2D" uid="uid://dx05dpp0h47y4" path="res://base_pack/crates/medkit.png" id="1_onibx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgw7b"]
+size = Vector2(128, 128)
+
+[node name="Medkit" type="RigidBody2D"]
+z_index = 29
+collision_layer = 128
+collision_mask = 128
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_ida43")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sgw7b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_onibx")

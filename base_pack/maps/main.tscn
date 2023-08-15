@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://be8bxcaye1t4w"]
+[gd_scene load_steps=11 format=3 uid="uid://be8bxcaye1t4w"]
 
 [ext_resource type="Script" path="res://base_pack/maps/main.gd" id="1_fbomf"]
 [ext_resource type="TileSet" uid="uid://qscp8jk2rxy" path="res://base_pack/tileset.tres" id="2_7ejl8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bn4ri0ulv7xvl" path="res://base_pack/players/perviy/perviy.tscn" id="5_ci6uh"]
 [ext_resource type="PackedScene" uid="uid://c0w777efacijn" path="res://core/spawner/spawnpoint.tscn" id="6_x0r4b"]
 [ext_resource type="PackedScene" uid="uid://uuxdu7wodf11" path="res://base_pack/crates/weapon_crate.tscn" id="7_73vyw"]
+[ext_resource type="PackedScene" uid="uid://iv2uq6x1m7lb" path="res://base_pack/crates/medkit.tscn" id="10_1b1yk"]
 [ext_resource type="PackedScene" uid="uid://ceby8uef8ts1" path="res://base_pack/crates/boost_crate.tscn" id="10_eqpwc"]
 
 [node name="Main" type="Node2D"]
@@ -48,14 +49,14 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 30
-layer_3/tile_data = PackedInt32Array(131081, 262144, 4, 131090, 327680, 4, 196618, 327680, 6, 196624, 327680, 6, 196617, 327680, 6, 262140, 327680, 6, 262129, 327680, 6, 917492, 327680, 6, 917486, 327680, 6, 524282, 327680, 6, 786446, 327680, 6, 851996, 327680, 6, 458770, 327680, 6)
+layer_3/tile_data = PackedInt32Array(131081, 262144, 4, 131090, 327680, 4, 262140, 327680, 6, 262129, 327680, 6, 917492, 655360, 6, 917486, 720896, 6, 524282, 327680, 6, 786446, 327680, 6, 851996, 720896, 6, 458770, 720896, 6, 131086, 524288, 3, 131088, 589824, 3, 7, 524288, 6, 65537, 393216, 6, -196607, 589824, 6, -393209, 589824, 6, 131079, 458752, 6, -65535, 458752, 6, -458751, 458752, 6, -589819, 393216, 6, -589821, 524288, 6, 196617, 655360, 6, 196620, 720896, 6, 851994, 655360, 6, 786450, 655360, 6, 786443, 655360, 6, 458765, 655360, 6, 458758, 655360, 6, 786434, 655360, 6, 524286, 655360, 6, 524280, 655360, 6, 851961, 655360, 6, 917489, 655360, 6, 262127, 655360, 6, 196635, 655360, 6, 327689, 393216, 6, 851976, 393216, 6, 983039, 393216, 6, 393213, 393216, 6, 589826, 393216, 6, 327706, 393216, 6, 393239, 393216, 6, 393208, 458752, 6, 393200, 458752, 6, 983032, 458752, 6, 720894, 458752, 6, 655367, 458752, 6, 589842, 458752, 6, 327694, 589824, 6, 917521, 589824, 6, 917508, 589824, 6, 327709, 524288, 6, 655353, 524288, 6, 131084, 458752, 6)
 layer_4/name = "grass"
 layer_4/enabled = true
 layer_4/modulate = Color(1, 1, 1, 1)
 layer_4/y_sort_enabled = false
 layer_4/y_sort_origin = 0
 layer_4/z_index = 40
-layer_4/tile_data = PackedInt32Array(196618, 327680, 5, 196619, 327680, 5, 196620, 393216, 5, 196622, 393216, 5, 196621, 327680, 5, 196624, 393216, 5, 196625, 327680, 5, 196626, 327680, 5, 196616, 327680, 5, 196615, 327680, 5, 196614, 327680, 5, 196608, 393216, 5, 262140, 393216, 5, 131061, 393216, 5, 262130, 393216, 5, 262126, 393216, 5, 131063, 327680, 5, 262138, 327680, 5, 262141, 327680, 5, 262142, 327680, 5, 196611, 327680, 5, 196610, 327680, 5)
+layer_4/tile_data = PackedInt32Array(196619, 524288, 0, 196620, 393216, 5, 196622, 393216, 5, 196621, 524288, 0, 196624, 393216, 5, 196625, 524288, 0, 196608, 589824, 0, 262140, 393216, 5, 131061, 393216, 5, 262130, 524288, 0, 131063, 327680, 5, 262138, 524288, 0, 262141, 524288, 0, 262127, 589824, 0, 196633, 589824, 0, 851992, 589824, 0, 851995, 524288, 0, 458770, 524288, 0, 458760, 524288, 0, 786433, 589824, 0, 524281, 589824, 0, 851959, 589824, 0, 917486, 524288, 0, 917488, 589824, 0)
 layer_5/name = "decorations"
 layer_5/enabled = true
 layer_5/modulate = Color(1, 1, 1, 1)
@@ -139,28 +140,63 @@ random_spawnpoint = false
 position = Vector2(-571, -260)
 script = ExtResource("3_eyu0p")
 player_scene = ExtResource("10_eqpwc")
+spawn_delay = 30.0
 random_spawnpoint = false
 
 [node name="BoostCrateSpawner2" type="Node2D" parent="BoostCrates"]
 position = Vector2(1867, -343)
 script = ExtResource("3_eyu0p")
 player_scene = ExtResource("10_eqpwc")
+spawn_delay = 30.0
 random_spawnpoint = false
 
 [node name="BoostCrateSpawner3" type="Node2D" parent="BoostCrates"]
 position = Vector2(3435, -965)
 script = ExtResource("3_eyu0p")
 player_scene = ExtResource("10_eqpwc")
+spawn_delay = 30.0
 random_spawnpoint = false
 
 [node name="BoostCrateSpawner4" type="Node2D" parent="BoostCrates"]
 position = Vector2(-1613, 1556)
 script = ExtResource("3_eyu0p")
 player_scene = ExtResource("10_eqpwc")
+spawn_delay = 30.0
 random_spawnpoint = false
 
 [node name="BoostCrateSpawner5" type="Node2D" parent="BoostCrates"]
 position = Vector2(3219, 1562)
 script = ExtResource("3_eyu0p")
 player_scene = ExtResource("10_eqpwc")
+spawn_delay = 30.0
+random_spawnpoint = false
+
+[node name="Medkits" type="Node2D" parent="."]
+
+[node name="MedkitSpawner" type="Node2D" parent="Medkits"]
+position = Vector2(667, -486)
+script = ExtResource("3_eyu0p")
+player_scene = ExtResource("10_1b1yk")
+spawn_delay = 15.0
+random_spawnpoint = false
+
+[node name="MedkitSpawner2" type="Node2D" parent="Medkits"]
+position = Vector2(3710, 1356)
+script = ExtResource("3_eyu0p")
+player_scene = ExtResource("10_1b1yk")
+spawn_delay = 15.0
+random_spawnpoint = false
+
+[node name="MedkitSpawner3" type="Node2D" parent="Medkits"]
+position = Vector2(-1410, 1340)
+script = ExtResource("3_eyu0p")
+player_scene = ExtResource("10_1b1yk")
+spawn_delay = 15.0
+random_spawnpoint = false
+
+[node name="MedkitSpawner4" type="Node2D" parent="Medkits"]
+position = Vector2(3043, -438)
+script = ExtResource("3_eyu0p")
+player_scene = ExtResource("10_1b1yk")
+spawn_delay = 15.0
 random_spawnpoint = false
